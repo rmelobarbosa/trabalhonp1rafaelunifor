@@ -5,79 +5,74 @@
 
 <link rel="stylesheet" type="text/css" href="css/main.css" />
 <script type="text/javascript">
-
-/**
- * doSubmit Submete um determinado formulario
- * 
- * @formName - Nome do formulario a ser submetido
- */
-function doSubmit(formNam) {
-	// Validando o Formulario
-	if (validate()) {
-		// Submetendo o formulario
-		document.forms[formName].submit();
-	}
-	;
-}
-
-/**
- * validate Valida os campos do formulário de acordo com as regras estabelecidas
- */
-function validate() {
-	/***************************************************************************
-	 * Capturando as referencias dos objetos a serem validados
-	 **************************************************************************/
-	var login = document.getElementsById("idLogin");
-	var senha = document.getElementById("idSenha");
-	/***************************************************************************
-	 * Validando o campo login
-	 **************************************************************************/
-	// Aplicando um trim no valor do campo
-	login.value = trim(login.value);
-	// Verificando se o campo login possui algum valor
-	if (login.value == "") {
-		displayError("O valor do campo 'Login' não pode ser vazio");
-		return false;
+	/**
+	 * doSubmit Submete um determinado formulario
+	 * 
+	 * @formName - Nome do formulario a ser submetido
+	 */
+	function doSubmit(formNam) {
+		// Validando o Formulario
+		if (validate()) {
+			// Submetendo o formulario
+			document.forms[formName].submit();
+		}
+		;
 	}
 
-	/***************************************************************************
-	 * Validando o campo senha
-	 **************************************************************************/
-	// Aplicando um trim no valor do campo
-	senha.value = trim(senha.value);
-	// Verificando se o campo senha possui algum valor
-	if (senha.value == "") {
-		displayError("O valor do campo 'Senha' não pode ser vazio");
-		return false;
+	/**
+	 * validate Valida os campos do formulário de acordo com as regras estabelecidas
+	 */
+	function validate() {
+		/***************************************************************************
+		 * Capturando as referencias dos objetos a serem validados
+		 **************************************************************************/
+		var login = document.getElementsById("idLogin");
+		var senha = document.getElementById("idSenha");
+		/***************************************************************************
+		 * Validando o campo login
+		 **************************************************************************/
+		// Aplicando um trim no valor do campo
+		login.value = trim(login.value);
+		// Verificando se o campo login possui algum valor
+		if (login.value == "") {
+			displayError("O valor do campo 'Login' não pode ser vazio");
+			return false;
+		}
+
+		/***************************************************************************
+		 * Validando o campo senha
+		 **************************************************************************/
+		// Aplicando um trim no valor do campo
+		senha.value = trim(senha.value);
+		// Verificando se o campo senha possui algum valor
+		if (senha.value == "") {
+			displayError("O valor do campo 'Senha' não pode ser vazio");
+			return false;
+		}
+
+		// Caso tudo tenha sido validado
+		return true;
 	}
-
-	// Caso tudo tenha sido validado
-	return true;
-}
-/**
- * displayError Exibe uma mensagem de erro para o usuário
- * 
- * @msg - String contendo o valor da mensagem que irá ser exibida
- */
-function displayError(msg) {
-	alert(msg);
-}
-/**
- * trim Retira os espaços vazios no início e fim da string
- * 
- * @str - String contendo o valor que irá sofrer a ação
- */
-function trim(str) {
-	while (str.substring(0, 1) == " ")
-		str = str.substring(1, str.length);
-	while (str.substring(str.length - 1, str.length) == " ")
-		str = str.substring(0, str.length - 1);
-	return str;
-}
-
-
-
-
+	/**
+	 * displayError Exibe uma mensagem de erro para o usuário
+	 * 
+	 * @msg - String contendo o valor da mensagem que irá ser exibida
+	 */
+	function displayError(msg) {
+		alert(msg);
+	}
+	/**
+	 * trim Retira os espaços vazios no início e fim da string
+	 * 
+	 * @str - String contendo o valor que irá sofrer a ação
+	 */
+	function trim(str) {
+		while (str.substring(0, 1) == " ")
+			str = str.substring(1, str.length);
+		while (str.substring(str.length - 1, str.length) == " ")
+			str = str.substring(0, str.length - 1);
+		return str;
+	}
 </script>
 
 <title>Trabalho TI</title>
@@ -85,43 +80,43 @@ function trim(str) {
 </head>
 
 <body>
-<!-- ######### HEADER ########## -->
+	<!-- ######### HEADER ########## -->
 	<div id="header">
-	<a href="home.html" title="Página Inicial" > 
-		<h3>Trabalho de Tecnologia da Informação I - NP1 - Organograma Dinâmico</h3>	
-	</a>
+		<a href="home.html" title="Página Inicial">
+			<h3>Trabalho de Tecnologia da Informação I - NP1 - Organograma
+				Dinâmico</h3>
+		</a>
 	</div>
-<!-- ############# MAIN ############# -->
+	<!-- ############# MAIN ############# -->
 	<div id="main">
-	<div id="bem-vindo">
-		<h1>Bem vindo ao Organograma!</h1>
+		<div id="bem-vindo">
+			<h1>Bem vindo ao Organograma!</h1>
 		</div>
-		
+
 		<div id="visualizar-organograma">
-		<button type="button" class="btn" name="visualizarOrganograma"
-			onclick="location.href='organograma.html'">
-			<img src="imagens/organograma.jpg" /><br/><p> Visualizar organograma</p> 
-		</button>
-<!-- 		<input type="button" name="visualizarOrganograma" -->
-<!-- 			onClick="location.href='organograma.html'" -->
-<!-- 			value='Visualizar organograma'/> -->
-		</div>		
+			<button type="button" class="btn" name="visualizarOrganograma"
+				onclick="location.href='organograma.html'">
+				<img src="imagens/organograma.jpg" /><br />
+				<p>Visualizar organograma</p>
+			</button>
+			<!-- 		<input type="button" name="visualizarOrganograma" -->
+			<!-- 			onClick="location.href='organograma.html'" -->
+			<!-- 			value='Visualizar organograma'/> -->
+		</div>
 
 		<div id="formulario-login1">
-			<form id="loginForm" name="loginForm" action="#"  method="post">
+			<form id="loginForm" name="loginForm" action="#" method="post">
 				<h2>Login do administrador</h2>
 				<label><p>
-					Login: <input id="idLogin" type="text" placeholder="login" name="login" />
-				</p></label>
-				<label><p>
-					Senha: <input id="idSenha" type="password" placeholder="senha" name="senha"  maxlength="10"/>
-				</p></label>
-				<label><input type ="reset" class="btn-input" name="limpar" value="Limpar"/></label>
-			<label>	<input type="submit" class="btn-input" name="entrar" value="Entrar" onclick="doSubmit('loginForm');" /></label>
+						Login: <input id="idLogin" type="text" placeholder="login"	name="login" /></p></label>
+						 <label><p>
+						Senha: <input id="idSenha" type="password" placeholder="senha"	name="senha" maxlength="10" /></p></label> 
+						<label><input type="reset" class="btn-input" name="limpar" value="Limpar" /></label> <label> <input type="submit" class="btn-input" name="entrar" value="Entrar"
+					onclick="doSubmit('loginForm');" /></label>
 			</form>
 		</div>
 	</div>
-<!-- ############ FOOTER ############ -->
+	<!-- ############ FOOTER ############ -->
 	<div id="footer">
 		<h5>Alunos: Francisco Valmar | Marina Gosson | Natalia Macambira</h5>
 	</div>
