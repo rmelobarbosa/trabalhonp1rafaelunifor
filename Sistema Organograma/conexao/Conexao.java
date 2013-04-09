@@ -30,7 +30,7 @@ public class Conexao {
 
 		} catch (ClassNotFoundException e) {
 			System.out
-					.println("Erro ao estabelecer uma conexão com o vanco de dados!");
+					.println("Erro ao estabelecer uma conexão com o banco de dados!");
 			throw new SQLException(e.getMessage());
 		}
 	}
