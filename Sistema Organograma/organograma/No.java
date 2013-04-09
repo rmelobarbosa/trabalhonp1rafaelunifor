@@ -1,19 +1,15 @@
 package organograma;
 
-import java.util.Date;
-
 public class No {
 	private int idNo;
 	private String nome;
-	private String descricao;
+	private String cargo;
 	private int noIdPai;
 
-	public No(int idNo, String nome, String descricao, Date dataCriacao,
-			int noIdPai) {
-		super();
-		this.idNo = idNo;
+	public No(String nome, String cargo, int noIdPai) {
+
 		this.nome = nome;
-		this.descricao = descricao;
+		this.cargo = cargo;
 		this.noIdPai = noIdPai;
 	}
 
@@ -34,11 +30,11 @@ public class No {
 	}
 
 	public String getDescricao() {
-		return descricao;
+		return cargo;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setDescricao(String cargo) {
+		this.cargo = cargo;
 	}
 
 	public int getNoIdPai() {

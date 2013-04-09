@@ -1,41 +1,21 @@
 import java.sql.Connection;
-import java.sql.SQLException;
 
 import organograma.No;
 
-import com.mysql.jdbc.PreparedStatement;
-
-import conexao.Conexao;
-
+import DAO.NoDAO;
 
 public class TesteBanco {
 	Connection connection;
+
 	/*
 	 * Método o qual realizará a gravação de um novo nó no banco de dados.
 	 */
-	public void saveData(No no) {
-		try {
-			connection = Conexao.getConnection();
 
-			PreparedStatement preparedStatement = null;
-			preparedStatement = (PreparedStatement) connection
-					.prepareStatement("INSERT INTO no (nome, cargo, id_no_pai) VALUES (?, ?, ?) ");
-
-			preparedStatement.setString(1, no.getNome());
-			preparedStatement.setString(2, no.getDescricao());
-			preparedStatement.setInt(3, no.getNoIdPai());
-
-			preparedStatement.close();
-			connection.close();
-
-		} catch (SQLException e) {
-			System.out.println("ERRO: Gravação mal-sucedida.");
-		}
-		
-	
-	}
-	
 	public static void main(String[] args) {
-		
+		No no = new No("Valmar", "Presidente", 1);
+		NoDAO dao = new NoDAO();
+
+		dao.saveData(no);
+
 	}
 }
