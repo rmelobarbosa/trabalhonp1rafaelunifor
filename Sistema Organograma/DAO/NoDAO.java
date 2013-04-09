@@ -103,7 +103,7 @@ public class NoDAO {
 		}
 	}
 
-	// FIXME NÃO ENTENDI ESSE ERRO
+	
 	public No getNoById(int id) {
 		No no = null;
 		try {
@@ -128,7 +128,7 @@ public class NoDAO {
 			connection.close();
 
 		} catch (SQLException e) {
-			System.out.println("ERRO: Exclusão mal-sucedida.");
+			System.out.println("ERRO: Informação não encontrada.");
 		}
 
 		return no;

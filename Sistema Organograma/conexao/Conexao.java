@@ -22,16 +22,19 @@ public class Conexao {
 	/*
 	 * Método o qual estabecerá uma conexão com o banco de Dados MySQL.
 	 */
-	public static Connection getConnection() throws SQLException {
-
+	public static Connection getConnection() {
+		Connection connection = null;
 		try {
 			Class.forName(driver);
-			return DriverManager.getConnection(conexao, usuario, senha);
-
+			connection = DriverManager.getConnection(conexao, usuario, senha);
+			return connection;
 		} catch (ClassNotFoundException e) {
 			System.out
-					.println("Erro ao estabelecer uma conexão com o banco de dados!");
-			throw new SQLException(e.getMessage());
-		}
+					.println("ERRO: Driver MySQL é inválido!");
+
+		} catch (SQLException e) {
+			System.out.println("ERRO:Conexão ao Banco de Dados falhou!");
+		} 
+		return connection;
 	}
 }

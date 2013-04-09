@@ -105,14 +105,22 @@
 		</div>
 
 		<div id="formulario-login1">
-			<form id="loginForm" name="loginForm" action="#" method="post">
+			<form id="loginForm" name="loginForm" action="/servlet/ValidaLoginServlet" method="post">
 				<h2>Login do administrador</h2>
 				<label><p>
-						Login: <input id="idLogin" type="text" placeholder="login"	name="login" /></p></label>
-						 <label><p>
-						Senha: <input id="idSenha" type="password" placeholder="senha"	name="senha" maxlength="10" /></p></label> 
-						<label><input type="reset" class="btn-input" name="limpar" value="Limpar" /></label> <label> <input type="submit" class="btn-input" name="entrar" value="Entrar"
-					onclick="doSubmit('loginForm');" /></label>
+					Login: <input id="idLogin" type="text" placeholder="login"	name="login" />
+				</p></label>
+				
+				<label><p>
+					Senha: <input id="idSenha" type="password" placeholder="senha"	name="senha" maxlength="10" />
+				</p></label> 
+				
+				<label>
+					<input type="reset" class="btn-input" name="limpar" value="Limpar" />
+				</label>
+				<label> 
+					<input type="submit" class="btn-input" name="entrar" value="Entrar"	 />
+				</label>
 			</form>
 		</div>
 	</div>
