@@ -6,13 +6,10 @@ public class Usuario {
 	private String nome;
 	private String perfil;
 
-	public Usuario(String login, String senha) {
-		super();
-		this.login = login;
-		this.senha = senha;
-		//this.nome = nome;
-		//this.perfil = perfil;
-	}
+	/*
+	 * public Usuario(String login, String senha) { super(); this.login = login;
+	 * this.senha = senha; //this.nome = nome; //this.perfil = perfil; }
+	 */
 
 	public String getLogin() {
 		return login;
@@ -34,16 +31,17 @@ public class Usuario {
 		return nome;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
 	public String getPerfil() {
 		return perfil;
 	}
 
 	public void setPerfil(String perfil) {
 		this.perfil = perfil;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+
 	}
 
 }

@@ -1,33 +1,48 @@
 package DAO;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+
+import java.sql.PreparedStatement;
+
+import organograma.Usuario;
+
+import conexao.Conexao;
 
 public class UsuarioDAO {
-	private String driver = "com.mysql.jdbc.Driver";
-	private String conexao = "jdbc:mysql://127.0.0.1:3306/mydb";
-	private String usuario = "root";
-	private String senha = "valmar";
-	private Connection connection;
-	private Statement statement;
 
-	public void search(String login, String Senha) {
+	private Connection connection;
+
+	//FIXME PERGUNTAR AO PROFESSOR QUAL A MELHOR MELHOR, NO TRY OU NO FINALLY!
+	public Usuario getUsuario(String login, String senha) {
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		String sql = "SELECT login, nome, senha FROM usuario WHERE login = ? and senha = ?";
 		try {
-			Class.forName(this.driver);
-			connection = DriverManager.getConnection(this.conexao,
-					this.usuario, this.senha);
-			statement = connection.createStatement();
-			statement
-					.executeUpdate("SELECT login, senha from no WHERE login = "
-							+ login + "' AND senha = '" + senha + "';");
-			statement.close();
+			connection = Conexao.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, login);
+			preparedStatement.setString(2, senha);
+
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+				Usuario usuario = new Usuario();
+				usuario.setLogin(resultSet.getString("login"));
+				usuario.setNome(resultSet.getString("nome"));
+				usuario.setSenha(resultSet.getString("senha"));
+				return usuario;
+			}
+
+			resultSet.close();
+			preparedStatement.close();
 			connection.close();
-		} catch (ClassNotFoundException e) {
 
 		} catch (SQLException e) {
 
 		}
+		return null;
+
 	}
 }
