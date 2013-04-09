@@ -82,9 +82,8 @@
 <body>
 	<!-- ######### HEADER ########## -->
 	<div id="header">
-		<a href="home.html" title="Página Inicial">
-			<h3>Trabalho de Tecnologia da Informação I - NP1 - Organograma
-				Dinâmico</h3>
+		<a href="index.html" title="Página Inicial">
+			<h3>Trabalho de Tecnologia da Informação I - NP1 - Organograma Dinâmico</h3>
 		</a>
 	</div>
 	<!-- ############# MAIN ############# -->
@@ -94,8 +93,7 @@
 		</div>
 
 		<div id="visualizar-organograma">
-			<button type="button" class="btn" name="visualizarOrganograma"
-				onclick="location.href='organograma.html'">
+			<button type="button" class="btn" name="visualizarOrganograma" onclick="location.href='organograma.html'">
 				<img src="imagens/organograma.jpg" /><br />
 				<p>Visualizar organograma</p>
 			</button>
@@ -103,27 +101,38 @@
 			<!-- 			onClick="location.href='organograma.html'" -->
 			<!-- 			value='Visualizar organograma'/> -->
 		</div>
-
+		
+		
+		
+		<!-- Formulário de Login -->
 		<div id="formulario-login1">
-			<form id="loginForm" name="loginForm" action="/servlet/ValidaLoginServlet" method="post">
+			<form id="loginForm" name="loginForm" action="ValidaLoginServlet" method="post">
 				<h2>Login do administrador</h2>
-				<label><p>
-					Login: <input id="idLogin" type="text" placeholder="login"	name="login" />
-				</p></label>
-				
-				<label><p>
-					Senha: <input id="idSenha" type="password" placeholder="senha"	name="senha" maxlength="10" />
-				</p></label> 
+				<label>
+					<p>
+						Login: <input id="idLogin" type="text" placeholder="login" name="login" />
+					</p>
+				</label> 
 				
 				<label>
-					<input type="reset" class="btn-input" name="limpar" value="Limpar" />
+					<p>
+						Senha: <input id="idSenha" type="password" placeholder="senha" name="senha" maxlength="10" />
+					</p>
 				</label>
+				
 				<label> 
-					<input type="submit" class="btn-input" name="entrar" value="Entrar"	 />
+					<input type="reset" class="btn-input"name="limpar" value="Limpar" />
+				</label>
+				
+				<label> 
+					<input type="submit" class="btn-input"	name="entrar" value="Entrar" />
 				</label>
 			</form>
 		</div>
 	</div>
+	<!-- Fim do formulári de login -->
+	
+	
 	<!-- ############ FOOTER ############ -->
 	<div id="footer">
 		<h5>Alunos: Francisco Valmar | Marina Gosson | Natalia Macambira</h5>

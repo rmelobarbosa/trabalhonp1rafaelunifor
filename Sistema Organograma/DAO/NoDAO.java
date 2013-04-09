@@ -28,7 +28,8 @@ public class NoDAO {
 			preparedStatement.setString(1, no.getNome());
 			preparedStatement.setString(2, no.getDescricao());
 			preparedStatement.setInt(3, no.getNoIdPai());
-
+			
+			preparedStatement.execute();
 			preparedStatement.close();
 			connection.close();
 
@@ -118,9 +119,8 @@ public class NoDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
 			
-			no = new No(resultSet.getInt("id"), resultSet.getString("nome"),
+			no = new No(resultSet.getString("nome"),
 					resultSet.getString("cargo"),
-					resultSet.getTimestamp("data_criacao"),
 					resultSet.getInt("id_no_pai"));
 
 			resultSet.close();

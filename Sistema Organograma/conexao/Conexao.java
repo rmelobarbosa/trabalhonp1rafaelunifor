@@ -35,6 +35,6 @@ public class Conexao {
 		} catch (SQLException e) {
 			System.out.println("ERRO:Conexão ao Banco de Dados falhou!");
 		} 
-		return connection;
+		return null;
 	}
 }
