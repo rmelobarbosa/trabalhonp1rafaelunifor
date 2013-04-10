@@ -26,7 +26,7 @@ public class ValidaLoginServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		Usuario usuario = null;
-		String login = request.getParameter("login");
+		String login = request.getParameter("login").toLowerCase();
 		String senha = request.getParameter("senha");
 
 		try {
