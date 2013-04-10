@@ -6,10 +6,87 @@
 <link rel="stylesheet" type="text/css" href="css/organograma.css" />
 <link rel="stylesheet" type="text/css" href="css/main.css" />
 
+
+
+<link rel="stylesheet" type="text/css"
+	href="css/smoothness/jquery-ui-1.8.12.custom.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 <title>Organograma</title>
-<div>
-	<h1>Trabalho de TI I - NP1 - Organograma</h1>
-</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("a[rel=modal]").click(function(ev) {
+			ev.preventDefault();
+
+			var id = $(this).attr("href");
+
+			var alturaTela = $(document).height();
+			var larguraTela = $(window).width();
+
+			//colocando o fundo preto
+			$('#mascara').css({
+				'width' : larguraTela,
+				'height' : alturaTela
+			});
+			$('#mascara').fadeIn(1000);
+			$('#mascara').fadeTo("slow", 0.8);
+
+			var left = ($(window).width() / 2) - ($(id).width() / 2);
+			var top = ($(window).height() / 2) - ($(id).height() / 2);
+
+			$(id).css({
+				'top' : top,
+				'left' : left
+			});
+			$(id).show();
+		});
+
+		$("#mascara").click(function() {
+			$(this).hide();
+			$(".window").hide();
+		});
+
+		$('.fechar').click(function(ev) {
+			ev.preventDefault();
+			$("#mascara").hide();
+			$(".window").hide();
+		});
+	});
+	
+	
+</script>
+
+<style type="text/css">
+.window {
+	display: none;
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #FFF;
+	z-index: 9900;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+#mascara {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 900;
+	background-color: #000;
+}
+
+.fechar {
+	display: block;
+	text-align: right;
+}
+
+</style>
+
 </head>
 <body>
 	<!-- ######### HEADER ########## -->
@@ -28,30 +105,43 @@
 			</form>
 		</div>
 	</div>
-	<!-- ############# MAIN ############# -->
-	<div id="main">
-		<div class="tree">
-			<ul>
-				<li><a href="#">Parent</a>
-					<ul>
-						<li><a href="#">Child</a>
-							<ul>
-								<li><a href="#">Grand Child</a></li>
-							</ul></li>
-						<li><a href="#">Child</a>
-							<ul>
-								<li><a href="#">Grand Child</a></li>
-								<li><a href="#">Grand Child</a>
-									<ul>
-										<li><a href="#">Great Grand Child</a></li>
-										<li><a href="#">Great Grand Child</a></li>
-										<li><a href="#">Great Grand Child</a></li>
-									</ul></li>
-								<li><a href="#">Grand Child</a></li>
-							</ul></li>
+
+		<!-- ############# MAIN #############
+	 -->
+		<div id="main">
+			<div class="tree">
+
+				<div id="mascara"></div>
+				<ul>
+
+					<li><a href="#parent" rel="modal">Parent</a>                                   
+						<div class="window" id="parent">                                 
+					 	<a href="#" class="fechar">X Fechar</a>
+					 	<p> Teste Parent</p></div>
+	<ul>
+							<li><a href="#child1" rel="modal">Child1</a>
+							<div class="window" id="child1"> 
+							<a href="#" class="fechar">x</a></div>
+								<ul>
+									<li><a ref="#">Grand Child1</a></li>
+								</ul></li>
+							<li><a href="#">Child</a>
+								<ul>
+									<li><a href="#">Grand Child</a></li>
+									<li><a href="#">Grand Child</a>
+										<ul>
+											<li><a href="#">Great Grand Child</a></li>
+											<li><a href="#">Great Grand Child</a></li>
+											<li><a href="#">Great Grand Child</a></li>
+										</ul></li>
+									<li><a href="#">Grand Child</a></li>
+								</ul></li>
+
+			</div>
 		</div>
-	</div>
-	<!-- ############ FOOTER ############ -->
+		
+		
+<!-- 	############ FOOTER ############ -->
 	<div id="footer">
 		<h5>Alunos: Francisco Valmar | Marina Gosson | Natalia Macambira</h5>
 	</div>
