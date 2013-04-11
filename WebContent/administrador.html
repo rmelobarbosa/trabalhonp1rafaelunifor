@@ -4,16 +4,33 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css"
+	href="jquery/tree_view/css/treeview.css">
+<script src="jquery/jquery.js"></script>
+<script src="jquery/tree_view/jquery.treeview.js" type="text/javascript"></script>
+<script src="jquery/tree_view/jquery.treeview.edit.js"
+	type="text/javascript"></script>
+<script src="jquery/tree_view/jquery.treeview.async.js"
+	type="text/javascript"></script>
 
 <script>
-function logout() {
-	confirm("Tem certeza que deseja sair?");
-	if(true) {
-		alert("Logout");
-	}else {
-		alert("Ficar");
-	}	
-}
+	function logout() {
+		confirm("Tem certeza que deseja sair?");
+		if (true) {
+			alert("Logout");
+		} else {
+			alert("Ficar");
+		}
+	}
+
+	$(document).ready(function() {
+		$('#black-tree').treeview({
+			animated : "fast",
+			persist : "location",
+			collapsed : true,
+			unique : false
+		});
+	});
 </script>
 
 <title>Administrador Organograma</title>
@@ -22,7 +39,7 @@ function logout() {
 <body>
 	<!-- ######### HEADER ########## -->
 	<div id="header">
-		<a href="home.html" title="Página Inicial">
+		<a href="index.html" title="Página Inicial">
 			<h3>Trabalho de Tecnologia da Informação I - NP1 - Organograma
 				Dinâmico</h3>
 		</a>
@@ -36,11 +53,134 @@ function logout() {
 
 	<!-- ############# MAIN ############# -->
 	<div id="main">
+		<div class="workspace">
 
-		<p>Administrador organograma</p>
+			<div class="workspace-left">
+
+				<div id="treeView" class="span1">
+					<div class="head">
+						<p>Navegador de hierarquia</p>
+					</div>
+					<div class="content">
+						<ul id="black-tree" class="treeview">
+							Escola FULANO de TAL
+							<li class="expandable"><div
+									class="hitarea expandable-hitarea"></div>Teste 1
+								<ul style="display: none;">
+									<li>Teste 1.1</li>
+									<li>Teste 1.2</li>
+									<li>Teste 1.3</li>
+									<li class="last">Teste 1.4</li>
+								</ul></li>
+							<li class="expandable"><div
+									class="hitarea expandable-hitarea"></div>Teste 2
+								<ul style="display: none;">
+									<li>Teste 2.1</li>
+									<li class="last">Teste 2.2</li>
+
+								</ul></li>
+							<li class="last">Teste 3</li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="controle-exibicao" class="span1">
+					<div class="head">
+						<p>Controle de Visualizaçao de Campos</p>
+					</div>
+					<div class="content">
+						<form>
+							<table id="table-exibir-no" class="table" align="center">
+								<thead>
+									<tr>
+										<th>Campo</th>
+										<th>Exibir</th>
+										<th>Não exibir</th>
+									</tr>
+								</thead>
+								<tr>
+									<td>Cargo</td>
+									<td><input type="radio" name="radioCampo1" value="1" /></td>
+									<td><input type="radio" name="radioCampo1" value="0" /></td>
+								</tr>
+								<tr>
+									<td>Nome</td>
+									<td><input type="radio" name="radioCampo2" value="1" /></td>
+									<td><input type="radio" name="radioCampo2" value="0" /></td>
+								</tr>
+								<tr>
+									<td>Email</td>
+									<td><input type="radio" name="radioCampo3" value="1" /></td>
+									<td><input type="radio" name="radioCampo3" value="0" /></td>
+								</tr>
+								<tr>
+									<td>Ramal</td>
+									<td><input type="radio" name="radioCampo4" value="1" /></td>
+									<td><input type="radio" name="radioCampo4" value="0" /></td>
+								</tr>
+								<tr>
+									<td>Sala</td>
+									<td><input type="radio" name="radioCampo5" value="1" /></td>
+									<td><input type="radio" name="radioCampo5" value="0" /></td>
+								</tr>
+							</table>
+							<input id="btn-salvar" type="submit" class="btn-input"
+								name="salvar" value="Salvar" />
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="workspace-right">
+
+				<div id="edicao-no" class="span2">
+					<div class="head">
+						<p>Editor</p>
+					</div>
+					<div class="content">
+						<form>
+							<table id="table-editar-no" align="center">
+								<tr>
+									<td><label><p>Cargo:</p></label></td>
+									<td><input type="text" name="cargo" /></td>
+									<td> <input type="checkbox" name="exibir-cargo"/>exibir</td>
+								</tr>
+								<tr>
+									<td><label><p>Nome:</p></label></td>
+									<td><input type="text" name="nome" /></td>
+									<td> <input type="checkbox" name="exibir-nome"/>exibir</td>
+								</tr>
+								<tr>
+									<td><label><p>E-mail:</p></label></td>
+									<td><input type="text" name="email" /></td>
+									<td> <input type="checkbox" name="exibir-email"/>exibir</td>
+								</tr>
+								<tr>
+									<td><p>Ramal:</p>
+										</label></td>
+									<td><input type="text" size="4" name="ramal" /></td>
+									<td> <input type="checkbox" name="exibir-ramal"/>exibir</td>
+								</tr>
+								<tr>
+									<td><p>Sala:</p>
+										</label></td>
+									<td><input type="text" size="4" name="sala" /></td>
+									<td> <input type="checkbox" name="exibir-sala"/>exibir</td>
+								</tr>
+								
+							</table>
+							
+							
+							<input id="btn-salvar" type="submit" class="btn-input"
+								name="salvar" value="Salvar" />
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="clear-fix"></div>
+		</div>
 	</div>
-	
 	<!-- ############ FOOTER ############ -->
+	<div class="clear-fix"></div>
 	<div id="footer">
 		<h5>Alunos: Francisco Valmar | Marina Gosson | Natalia Macambira</h5>
 	</div>
