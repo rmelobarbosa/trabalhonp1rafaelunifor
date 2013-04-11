@@ -131,10 +131,15 @@ p{
 	transition: background-position 0.1s linear;
 }
 
-#btn-salvar{
-	float: right;
-	margin: 10px 37px 10px 20px;
+#btn-editar-no{
+	text-align: center;
 }
+
+#btn-editar-no .btn-input{
+	margin: 10px;
+}
+
+
 
 /* ######### HEADER ##########  */
 #header {	
@@ -185,6 +190,11 @@ p{
 
 #header .btn-input {
 	padding: 3px 15px 3px 15px;
+	
+}
+
+#header .btn-input:HOVER{
+	background-color: #CD0000;
 }
 
 /* ############# MAIN ############# */
