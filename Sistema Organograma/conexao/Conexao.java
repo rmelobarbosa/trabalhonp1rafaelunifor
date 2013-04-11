@@ -2,10 +2,15 @@ package conexao;
 
 /*
  * TRABALHO DE NP1 - PROFESSOR RAFAEL BARBOSA
- * ALUNOS: FRANCISCO VALMAR, NATÁLIA MACAMBIRA e MARINA GOSSON.
+ * @author ALUNOS: FRANCISCO VALMAR, NATÁLIA MACAMBIRA e MARINA GOSSON.
  * Todos os direitos reservados. All right reserved.
  * Proibída a cópia parcial ou integral desse trabalho. 
  * Total or partial copy of this work is forbidden.
+ */
+
+/**
+ * Este metodo pega uma instancia de conexão com o banco de dados
+ * @return retorna uma instancia de conexão com o banco de dados
  */
 
 import java.sql.Connection;
@@ -21,6 +26,7 @@ public class Conexao {
 
 	/*
 	 * Método o qual estabecerá uma conexão com o banco de Dados MySQL.
+	 *
 	 */
 	public static Connection getConnection() {
 		Connection connection = null;
