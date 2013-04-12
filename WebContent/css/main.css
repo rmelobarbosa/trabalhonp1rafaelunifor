@@ -1,37 +1,48 @@
 @CHARSET "ISO-8859-1";
 
-body{
-	font-family: "verdana";	
+body {
+	font-family: "verdana";
 	font-size: 12px;
 }
 
-p{
+p {
 	font-size: 14px;
 }
 
+hr {
+	border-color: rgba(0, 0, 0, 0.2);
+}
 
 .clear-fix {
 	clear: both;
 }
 
 .workspace {
-	border-style: outset;
 	position: relative;
 	z-index: 99;
 	height: auto;
 	width: auto;
-	margin-left: 50px;
-	margin-right: 50px;
-	margin-top: 20px;
-	margin-bottom: 10px;
+	padding-top: 50px;
 }
 
 .workspace-left {
 	float: left;
+	margin-left: 120px;
 }
 
 .workspace-right {
 	float: right;
+	margin-right: 120px;
+}
+
+.content {
+}
+
+.scroll {
+	position: relative;
+	width: 370px;
+	height: 215px;
+	overflow: auto;
 }
 
 .span1 {
@@ -41,9 +52,7 @@ p{
 	border: 1px solid rgba(0, 0, 0, 0.2);
 	margin-left: 50px;
 	margin-right: 50px;
-/* 	margin-bottom: 10px; */
-	margin-bottom: 100px;
-	overflow: auto;
+	margin-bottom: 10px;
 }
 
 .span2 {
@@ -58,7 +67,6 @@ p{
 	margin-bottom: 10px;
 	overflow: auto;
 }
-
 
 .head {
 	height: 35px;
@@ -76,7 +84,7 @@ p{
 		rgba(53, 106, 160, 1) 100%); /* IE10+ */
 	background: linear-gradient(135deg, rgba(107, 147, 190, 1) 100%,
 		rgba(53, 106, 160, 1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient(            startColorstr='#6b93be',
+	filter: progid:DXImageTransform.Microsoft.gradient(             startColorstr='#6b93be',
 		endColorstr='#356aa0', GradientType=1);
 	/* IE6-9 fallback on horizontal gradient */
 }
@@ -87,10 +95,6 @@ p{
 	margin: 0;
 	padding: 6px;
 	text-align: center;
-}
-
-.content {
-	padding: 10px;
 }
 
 /*######### BOTOES ########## */
@@ -134,25 +138,23 @@ p{
 	transition: background-position 0.1s linear;
 }
 
-#btn-editar-no{
+#btn-editar-no {
 	text-align: center;
 }
 
-#btn-editar-no .btn-input{
-	margin: 50px 10px 10px;
+#btn-editar-no .btn-input {
+	margin: 10px 10px 10px;
 }
 
-
-
 /* ######### HEADER ##########  */
-#header {	
+#header {
 	-moz-box-shadow: 0 0 5px 3px #888;
 	-webkit-box-shadow: 0 0 5px 3px #886;
 	box-shadow: 0 0 5px 3px #888;
 	min-width: 700px;
-	top: 0;
-	left: 0;
-	position: absolute;
+	top: 0;	
+	bottom: 0;
+	position: relative;
 	width: 100%;
 	z-index: 9999;
 	display: block;
@@ -172,14 +174,14 @@ p{
 		rgba(53, 106, 160, 1) 100%); /* IE10+ */
 	background: linear-gradient(135deg, rgba(107, 147, 190, 1) 100%,
 		rgba(53, 106, 160, 1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient(            startColorstr='#6b93be',
+	filter: progid:DXImageTransform.Microsoft.gradient(             startColorstr='#6b93be',
 		endColorstr='#356aa0', GradientType=1);
 	/* IE6-9 fallback on horizontal gradient */
 }
 
 #header a {
 	text-transform: none;
-	color: white;	
+	color: white;
 	font-size: 20px;
 }
 
@@ -188,34 +190,35 @@ p{
 	margin-right: 20px;
 	float: left;
 	margin-top: 20px;
-/* 	font-family: arial; */
+	/* 	font-family: arial; */
 }
 
-#header img{
+#header img {
 	float: left;
 	margin-left: 20px;
 }
 
 #header .btn-input {
 	padding: 3px 15px 3px 15px;
-	
 }
 
-#header .btn-input:HOVER{
+#header .btn-input:HOVER {
 	background-color: #CD0000;
 }
 
 /* ############# MAIN ############# */
 #main {
-	overflow: auto;
-	top: 60px;
 	left: 0;
 	right: 0;
-	position: absolute;
-	z-index: 999;
+	top: 0;
+	bottom: 0;
+	position: relative;
+	height: auto;
+	z-index : 999;
 	display: block;
 	width: 100%;
-	min-height: 550px;
+	min-height: 520px;
+	padding-bottom: 35px;
 	background: rgb(252, 255, 244); /* Old browsers */
 	background: -moz-linear-gradient(-45deg, rgba(252, 255, 244, 1) 0%,
 		rgba(233, 233, 206, 1) 100%); /* FF3.6+ */
@@ -230,8 +233,9 @@ p{
 		rgba(233, 233, 206, 1) 100%); /* IE10+ */
 	background: linear-gradient(135deg, rgba(252, 255, 244, 1) 0%,
 		rgba(233, 233, 206, 1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient(             startColorstr='#fcfff4',
+	filter: progid:DXImageTransform.Microsoft.gradient(              startColorstr='#fcfff4',
 		endColorstr='#e9e9ce', GradientType=1);
+	z-index: 999;
 	/* IE6-9 fallback on horizontal gradient */
 }
 
@@ -243,7 +247,7 @@ p{
 }
 
 #visualizar-organograma {
-	margin: 90px 30px 60px 30px;
+	margin: 160px 30px 60px 30px;
 	width: 50%;
 	text-align: center;
 	float: left;
@@ -252,9 +256,8 @@ p{
 
 #formulario-login1 {
 	width: 25%;
-	margin: 30px;
+	margin: 100px 30px 30px 30px;
 	position: relative;
-	vertical-align: middle;
 	float: left;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -276,7 +279,7 @@ p{
 		rgba(53, 106, 160, 1) 100%); /* IE10+ */
 	background: linear-gradient(135deg, rgba(107, 147, 190, 1) 100%,
 		rgba(53, 106, 160, 1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient(            startColorstr='#6b93be',
+	filter: progid:DXImageTransform.Microsoft.gradient(             startColorstr='#6b93be',
 		endColorstr='#356aa0', GradientType=1);
 	-moz-border-radius: 5px;
 	/* IE6-9 fallback on horizontal gradient */
@@ -292,11 +295,7 @@ p{
 	margin: 18px 20px 0px 20px;
 }
 
-#treeView .content{
-	margin: 10px 20px 10px 20px;
-}
-
-#controle-exibicao{
+#controle-exibicao {
 	height: auto;
 }
 
@@ -321,16 +320,16 @@ p{
 	padding: 6px;
 }
 
-#table-editar-no{
+#table-editar-no {
 	text-align: center;
 	border-collapse: collapse;
 }
 
-#table-editar-no td{
+#table-editar-no td {
 	text-align: left;
 }
 
-#table-editar-no td p{
+#table-editar-no td p {
 	text-align: right;
 }
 
@@ -342,7 +341,10 @@ p{
 	color: white;
 	bottom: 0;
 	left: 0;
-	position: fixed;
+	/*position: fixed;*/
+	position: relative;
+	margin-top: -35px; /* negative value of footer height */
+	clear: both;
 	z-index: 9999;
 	width: 100%;
 	height: 35px;
@@ -362,7 +364,7 @@ p{
 		rgba(53, 106, 160, 1) 100%); /* IE10+ */
 	background: linear-gradient(135deg, rgba(107, 147, 190, 1) 100%,
 		rgba(53, 106, 160, 1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient(            startColorstr='#6b93be',
+	filter: progid:DXImageTransform.Microsoft.gradient(             startColorstr='#6b93be',
 		endColorstr='#356aa0', GradientType=1);
 	background: rgb(107, 147, 190);
 	/* IE6-9 fallback on horizontal gradient */
@@ -373,4 +375,5 @@ p{
 	margin-top: 10px;
 	margin-bottom: 5px;
 	margin-right: 20px;
+	padding-top: 10px;
 }
