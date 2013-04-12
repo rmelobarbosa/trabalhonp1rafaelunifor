@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import organograma.No;
+import organograma.Usuario;
 
 import com.mysql.jdbc.PreparedStatement;
 
@@ -28,7 +29,7 @@ public class NoDAO {
 			preparedStatement.setString(1, no.getNome());
 			preparedStatement.setString(2, no.getDescricao());
 			preparedStatement.setInt(3, no.getNoIdPai());
-			
+
 			preparedStatement.execute();
 			preparedStatement.close();
 			connection.close();
@@ -104,7 +105,6 @@ public class NoDAO {
 		}
 	}
 
-	
 	public No getNoById(int id) {
 		No no = null;
 		try {
@@ -118,10 +118,9 @@ public class NoDAO {
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			
+
 			no = new No(resultSet.getString("nome"),
-					resultSet.getString("cargo"),
-					resultSet.getInt("id_no_pai"));
+					resultSet.getString("cargo"), resultSet.getInt("id_no_pai"));
 
 			resultSet.close();
 			preparedStatement.close();
@@ -132,6 +131,36 @@ public class NoDAO {
 		}
 
 		return no;
+
+	}
+
+	public No getNos() {
+		No no = null;
+		try {
+			connection = Conexao.getConnection();
+
+			PreparedStatement preparedStatement = null;
+			preparedStatement = (PreparedStatement) connection
+					.prepareStatement("SELECT * FROM no");
+
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+				no = new No(resultSet.getString("nome"),
+						resultSet.getString("cargo"),
+						resultSet.getInt("id_no_pai"));
+				return no;
+			}
+			
+			resultSet.close();
+			preparedStatement.close();
+			connection.close();
+
+		} catch (SQLException e) {
+			System.out.println("ERRO: Informação não encontrada.");
+		}
+
+		return null;
 
 	}
 
