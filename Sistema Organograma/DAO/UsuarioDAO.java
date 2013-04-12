@@ -14,7 +14,6 @@ public class UsuarioDAO {
 
 	private Connection connection;
 
-	//FIXME PERGUNTAR AO PROFESSOR QUAL A MELHOR MELHOR, NO TRY OU NO FINALLY!
 	public Usuario getUsuario(String login, String senha) {
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
