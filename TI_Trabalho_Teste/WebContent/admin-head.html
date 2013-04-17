@@ -31,6 +31,25 @@
 			unique : false
 		});
 	});
+	
+	function OnSubmitForm()
+	{
+	  if(document.pressed == 'Criar')
+	  {
+	   document.myform.action ="CriarServlet";
+	  }
+	  else
+	  if(document.pressed == 'Alterar')
+	  {
+	    document.myform.action ="AlterarServlet";
+	  }
+	  else
+		  if(document.pressed == 'Excluir')
+		  {
+		    document.myform.action ="ExcluirServlet";
+		  }
+	  return true;
+	}
 </script>
 
 <title>Administrador Organograma</title>

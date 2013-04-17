@@ -90,17 +90,19 @@ public class Admin2Servlet extends HttpServlet {
 
 		out.println("<tr> <td><label><p>Nó-pai:</p></label></td>");
 		out.println("<td><select name='no-pai' >");
-		/* Controi o menu da setor Nó-pai na div "Editor de Nó" */
+		/**
+		 *  Controi o menu da setor Nó-pai na div "Editor de Nó" */
 		for (No no : noList) {
-			out.println("<option value=''>" + no.getNome() + "</option>");
+			out.println("<option value='"+no.getNoIdPai()+"'>" + no.getNome() + "</option>");
 		}
 		out.println("</select></td>");
 
-		/*
-		 * Pega por parâmetroo ID_FK (na tabela infos do banco de dados) do nó e o nome do nó por parâmetro
-		 * inicialmente passado pelo Servlet "AdminServlet", após este servlet
-		 * ser carregado pela primeira vez, ele ficará se chamando a medida que
-		 * o usuário clica nos links na div "Navegador de Hierarquias".
+		/**
+		 * Pega por parâmetro ID_FK (na tabela infos do banco de dados) do nó e
+		 * o nome do nó por parâmetro inicialmente passado pelo Servlet
+		 * "AdminServlet", após este servlet ser carregado pela primeira vez,
+		 * ele ficará se chamando a medida que o usuário clica nos links na div
+		 * "Navegador de Hierarquias".
 		 */
 		for (Info i : infoList) {
 			out.println("<tr> <td><label><p>Nome do nó:</p></label></td>");
@@ -135,7 +137,8 @@ public class Admin2Servlet extends HttpServlet {
 	}
 
 	/**
-	 * Método o qual é responsável pela montagem efetiva da árvore por meio recursivo.
+	 * Método o qual é responsável pela montagem efetiva da árvore por meio
+	 * recursivo.
 	 * **/
 	private void montarArvore(No no, PrintWriter out) {
 
