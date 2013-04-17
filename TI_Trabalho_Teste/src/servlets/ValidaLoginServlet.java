@@ -17,6 +17,19 @@ import DAO.UsuarioDAO;
 public class ValidaLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Método o qual verifica se o usuário e senha informados pelo usuário
+	 * existe.
+	 * 
+	 * @return se existir, uma ssession validada e o encaminha para página de
+	 *         edição dos nós.
+	 * @return caso não existe, a session mé invalidada e o usuário é
+	 *         encaminhado para uma página de erro.
+	 * @throws Dispara
+	 *             erro de entrada e saída bem como erro no tratamento do
+	 *             request ou response do Servlet.
+	 * 
+	 * */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
@@ -40,10 +53,10 @@ public class ValidaLoginServlet extends HttpServlet {
 		} else {
 			session.setAttribute("usuario", usuario);
 			request.setAttribute("nome", usuario.getNome());
-			
+
 			request.getRequestDispatcher("AdminServlet").forward(request,
 					response);
-			
+
 		}
 	}
 

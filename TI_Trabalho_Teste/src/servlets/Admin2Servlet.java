@@ -34,7 +34,6 @@ public class Admin2Servlet extends HttpServlet {
 
 		String nomeUsuario = (String) request.getAttribute("nome");
 		String nomeNo = request.getParameter("nome");
-
 		String idNo = request.getParameter("id");
 
 		infoDao = new InfoDAO();
@@ -45,6 +44,9 @@ public class Admin2Servlet extends HttpServlet {
 
 		out = response.getWriter();
 
+		/*
+		 * Importa do o layout do admin-head.html
+		 */
 		RequestDispatcher rd = request.getRequestDispatcher("admin-head.html");
 		rd.include(request, response);
 
@@ -64,6 +66,7 @@ public class Admin2Servlet extends HttpServlet {
 		out.println("</div>");
 		out.println("<div class='content scroll'>");
 
+		/* Constroi a árvore de nós na div "Navegador de Hierarquia". */
 		No raiz = null;
 		for (No no : noList) {
 			if (no.getNoIdPai() == 0)
@@ -87,11 +90,18 @@ public class Admin2Servlet extends HttpServlet {
 
 		out.println("<tr> <td><label><p>Nó-pai:</p></label></td>");
 		out.println("<td><select name='no-pai' >");
+		/* Controi o menu da setor Nó-pai na div "Editor de Nó" */
 		for (No no : noList) {
 			out.println("<option value=''>" + no.getNome() + "</option>");
 		}
 		out.println("</select></td>");
 
+		/*
+		 * Pega por parâmetroo ID_FK (na tabela infos do banco de dados) do nó e o nome do nó por parâmetro
+		 * inicialmente passado pelo Servlet "AdminServlet", após este servlet
+		 * ser carregado pela primeira vez, ele ficará se chamando a medida que
+		 * o usuário clica nos links na div "Navegador de Hierarquias".
+		 */
 		for (Info i : infoList) {
 			out.println("<tr> <td><label><p>Nome do nó:</p></label></td>");
 			out.println("<td><input type='text' name='no' value='" + nomeNo
@@ -124,6 +134,9 @@ public class Admin2Servlet extends HttpServlet {
 
 	}
 
+	/**
+	 * Método o qual é responsável pela montagem efetiva da árvore por meio recursivo.
+	 * **/
 	private void montarArvore(No no, PrintWriter out) {
 
 		out.println("<li class='expandable'> <div class='hitarea expandable-hitarea'></div> <a href='Admin2Servlet?id="
