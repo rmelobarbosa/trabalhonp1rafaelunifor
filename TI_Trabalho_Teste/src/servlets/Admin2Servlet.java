@@ -86,27 +86,25 @@ public class Admin2Servlet extends HttpServlet {
 		out.println("<p>Editor de Nó</p> </div>");
 		out.println("<div class='content'>");
 
-		out.println("<form action='BotoesServlet'><table id='table-editar-no' align='center'>");
+		out.println("<form name='myform' action='BotoesServlet'><table id='table-editar-no' align='center'>");
 
 		out.println("<tr> <td><label><p>Nó-pai:</p></label></td>");
 		out.println("<td><select name='no-pai' >");
-		/**
-		 *  Controi o menu da setor Nó-pai na div "Editor de Nó" */
+		/* Constroi o menu da setor Nó-pai na div "Editor de Nó" */
 		for (No no : noList) {
 			out.println("<option value='"+no.getNoIdPai()+"'>" + no.getNome() + "</option>");
 		}
 		out.println("</select></td>");
 
-		/**
-		 * Pega por parâmetro ID_FK (na tabela infos do banco de dados) do nó e
-		 * o nome do nó por parâmetro inicialmente passado pelo Servlet
-		 * "AdminServlet", após este servlet ser carregado pela primeira vez,
-		 * ele ficará se chamando a medida que o usuário clica nos links na div
-		 * "Navegador de Hierarquias".
+		/*
+		 * Pega por parâmetroo ID_FK (na tabela infos do banco de dados) do nó e o nome do nó por parâmetro
+		 * inicialmente passado pelo Servlet "AdminServlet", após este servlet
+		 * ser carregado pela primeira vez, ele ficará se chamando a medida que
+		 * o usuário clica nos links na div "Navegador de Hierarquias".
 		 */
 		for (Info i : infoList) {
 			out.println("<tr> <td><label><p>Nome do nó:</p></label></td>");
-			out.println("<td><input type='text' name='no' value='" + nomeNo
+			out.println("<td><input type='text' name='nomeNo' value='" + nomeNo
 					+ "'/></td>");
 
 			out.println("<tr><td><label><p>Representante:</p></label></td>");
@@ -137,8 +135,7 @@ public class Admin2Servlet extends HttpServlet {
 	}
 
 	/**
-	 * Método o qual é responsável pela montagem efetiva da árvore por meio
-	 * recursivo.
+	 * Método o qual é responsável pela montagem efetiva da árvore por meio recursivo.
 	 * **/
 	private void montarArvore(No no, PrintWriter out) {
 

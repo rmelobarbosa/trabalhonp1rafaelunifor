@@ -70,7 +70,7 @@ public class AdminServlet extends HttpServlet {
 		out.println("<p>Editor de Nó</p> </div>");
 		out.println("<div class='content'>");
 
-		out.println("<form action='BotoesServlet'><table id='table-editar-no' align='center'>");
+		out.println("<form name='myform' action='BotoesServlet'><table id='table-editar-no' align='center'>");
 
 		out.println("<tr> <td><label><p>Nó-pai:</p></label></td>");
 
@@ -81,7 +81,7 @@ public class AdminServlet extends HttpServlet {
 		out.println("</select></td>");
 
 		out.println("<tr> <td><label><p>Nome do nó:</p></label></td>");
-		out.println("<td><input type='text' name='no'/></td>");
+		out.println("<td><input type='text' name='nomeNo'/></td>");
 
 		out.println("<tr><td><label><p>Representante:</p></label></td>");
 		out.println("<td><input type='text' name='representante' /></td>");
