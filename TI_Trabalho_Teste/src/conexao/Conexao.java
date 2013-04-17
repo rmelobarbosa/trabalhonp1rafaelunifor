@@ -1,16 +1,11 @@
 package conexao;
 
-/*
+/**
  * TRABALHO DE NP1 - PROFESSOR RAFAEL BARBOSA
  * @author ALUNOS: FRANCISCO VALMAR, NATÁLIA MACAMBIRA e MARINA GOSSON.
  * Todos os direitos reservados. All right reserved.
  * Proibída a cópia parcial ou integral desse trabalho. 
  * Total or partial copy of this work is forbidden.
- */
-
-/**
- * Este metodo pega uma instancia de conexão com o banco de dados
- * @return retorna uma instancia de conexão com o banco de dados
  */
 
 import java.sql.Connection;
@@ -24,9 +19,10 @@ public class Conexao {
 	private static String usuario = "root";
 	private static String senha = "valmar";
 
-	/*
+	/**
 	 * Método o qual estabecerá uma conexão com o banco de Dados MySQL.
-	 *
+	 * 
+	 * @return retorna uma instancia de conexão com o banco de dados
 	 */
 	public static Connection getConnection() {
 		Connection connection = null;
@@ -35,12 +31,11 @@ public class Conexao {
 			connection = DriverManager.getConnection(conexao, usuario, senha);
 			return connection;
 		} catch (ClassNotFoundException e) {
-			System.out
-					.println("ERRO: Driver MySQL é inválido!");
+			System.out.println("ERRO: Driver MySQL é inválido!");
 
 		} catch (SQLException e) {
 			System.out.println("ERRO:Conexão ao Banco de Dados falhou!");
-		} 
+		}
 		return null;
 	}
 }
