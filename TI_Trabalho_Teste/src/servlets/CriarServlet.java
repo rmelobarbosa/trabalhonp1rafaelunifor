@@ -45,6 +45,9 @@ public class CriarServlet extends HttpServlet {
 						.getParameter("representante"), request
 						.getParameter("email"), Integer.parseInt(request
 						.getParameter("no-pai"))));
+		
+		request.getRequestDispatcher("AdminServlet").forward(request, response);
+		
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>");
 		out.println("Ola");
