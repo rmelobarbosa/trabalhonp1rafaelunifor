@@ -152,7 +152,7 @@ public class InfoDAO {
 		List<Info> infos = new ArrayList<Info>();
 		try {
 			connection = Conexao.getConnection();
-			int idFK = Integer.parseInt(idInfo);
+			int idFK = Integer.parseInt(idInfo); //Convertendo a String em inteiro.
 
 			PreparedStatement preparedStatement = null;
 			preparedStatement = (PreparedStatement) connection
