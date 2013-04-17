@@ -76,12 +76,12 @@ public class AdminServlet extends HttpServlet {
 
 		out.println("<td><select name='no-pai' >");
 		for (No no : noList) {
-			out.println("<option value=''>" + no.getNome() + "</option>");
+			out.println("<option value='"+no.getNoIdPai()+"'>" + no.getNome() + "</option>");
 		}
 		out.println("</select></td>");
 
 		out.println("<tr> <td><label><p>Nome do nó:</p></label></td>");
-		out.println("<td><input type='text' name='no' value=''/></td>");
+		out.println("<td><input type='text' name='no'/></td>");
 
 		out.println("<tr><td><label><p>Representante:</p></label></td>");
 		out.println("<td><input type='text' name='representante' /></td>");
@@ -93,7 +93,7 @@ public class AdminServlet extends HttpServlet {
 
 		out.println("<tr><td><p>Ramal:</p> </label></td>");
 		out.println("<td><input type='text' size='4' name='ramal' /></td>");
-		out.println("<td><input type='checkbox' name='exibir-ramal' value= '' />exibir</td></tr>");
+		out.println("<td><input type='checkbox' name='exibir-ramal' />exibir</td></tr>");
 
 		out.println("<tr><td><p>Sala:</p> </label></td>");
 		out.println("<td><input type='text' size='4' name='sala' /></td>");
