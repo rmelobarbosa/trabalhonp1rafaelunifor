@@ -90,7 +90,9 @@ public class Admin2Servlet extends HttpServlet {
 
 		out.println("<tr> <td><label><p>Nó-pai:</p></label></td>");
 		out.println("<td><select name='no-pai' >");
-		/* Constroi o menu da setor Nó-pai na div "Editor de Nó" */
+		
+		
+		/* Constroi o menu do setor Nó-pai na div "Editor de Nó" */
 		for (No no : noList) {
 			out.println("<option value='"+no.getNoIdPai()+"'>" + no.getNome() + "</option>");
 		}
@@ -128,7 +130,7 @@ public class Admin2Servlet extends HttpServlet {
 			out.println("<td><input type='checkbox' name='exibir-sala' />exibir</td></tr>");
 		}
 		out.println("</table>");
-
+		
 		rd = request.getRequestDispatcher("admin-footer.html");
 		rd.include(request, response);
 

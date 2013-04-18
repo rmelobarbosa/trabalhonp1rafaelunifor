@@ -25,7 +25,7 @@ public class NoDAO {
 
 			PreparedStatement preparedStatement = null;
 			preparedStatement = (PreparedStatement) connection
-					.prepareStatement("INSERT INTO no (nome, descricao, id_no_pai) VALUES (?, ?, ?) ");
+					.prepareStatement("INSERT INTO no (nome, descricao, no_id_pai) VALUES (?, ?, ?) ");
 
 			preparedStatement.setString(1, no.getNome());
 			preparedStatement.setString(2, no.getDescricao());
@@ -36,7 +36,9 @@ public class NoDAO {
 			connection.close();
 
 		} catch (SQLException e) {
-			System.out.println("ERRO: Gravação mal-sucedida.");
+			System.out.println("ERRO: NO Gravação mal-sucedida.");
+			
+			e.printStackTrace();
 		}
 	}
 

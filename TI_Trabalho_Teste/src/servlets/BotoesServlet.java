@@ -19,73 +19,69 @@ import DAO.NoDAO;
 @WebServlet("/BotoesServlet")
 public class BotoesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public BotoesServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		boolean criarPressed = request.getParameter("criar") != null;
-		boolean alterarPressed = request.getParameter("alterar") != null;
-		boolean excluirPressed = request.getParameter("excluir") != null;
-		
-//		String resp = request.getParameter("acao");
-		NoDAO noDao = new NoDAO();
-		InfoDAO infoDao = new InfoDAO();
-		
-		No noServlet = new No(request.getParameter("nomeNo"), "", Integer
-				.parseInt(request.getParameter("no-pai")));
-		
-		Info infoServlet = new Info(Integer.parseInt(request.getParameter("ramal")),
-				Integer.parseInt(request.getParameter("sala")), request
-				.getParameter("representante"), request
-				.getParameter("email"), Integer.parseInt(request
-				.getParameter("no-pai")));
-		
-		if (criarPressed){
-			noDao.saveData(noServlet);			
-			infoDao.saveData(infoServlet);
-			
-			request.getRequestDispatcher("AdminServlet").forward(request, response);
-			
-		}
-		
-		if (alterarPressed){
-			noDao.updateData(noServlet);
-			infoDao.updateData(infoServlet);
-			
-			request.getRequestDispatcher("AdminServlet").forward(request, response);
-			
-		}
-		
-		if (excluirPressed){
-			
-			noDao.deleteData(noServlet);
-			infoDao.deleteData(infoServlet);
-			
-			request.getRequestDispatcher("AdminServlet").forward(request, response);
-			
-			
-		}
-		
-		
-		
-		
-		
-		
+	public BotoesServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		boolean criarPressed = request.getParameter("criar") != null;
+		boolean alterarPressed = request.getParameter("alterar") != null;
+		boolean excluirPressed = request.getParameter("excluir") != null;
+
+		// String resp = request.getParameter("acao");
+		NoDAO noDao = new NoDAO();
+		InfoDAO infoDao = new InfoDAO();
+
+		No noServlet = new No(request.getParameter("nomeNo"), "",
+				Integer.parseInt(request.getParameter("no-pai")));
+
+		Info infoServlet = new Info(Integer.parseInt(request
+				.getParameter("ramal")), Integer.parseInt(request
+				.getParameter("sala")), request.getParameter("representante"),
+				request.getParameter("email"));
+
+		if (criarPressed) {
+			noDao.saveData(noServlet);
+			infoDao.saveData(infoServlet);
+
+			request.getRequestDispatcher("AdminServlet").forward(request,
+					response);
+
+		}
+
+		if (alterarPressed) {
+			// noDao.updateData(noServlet);
+			infoDao.updateData(infoServlet);
+
+			request.getRequestDispatcher("AdminServlet").forward(request,
+					response);
+
+		}
+
+		if (excluirPressed) {
+
+			// noDao.deleteData(noServlet);
+			infoDao.deleteData(infoServlet);
+
+			request.getRequestDispatcher("AdminServlet").forward(request,
+					response);
+
+		}
+
+	}
+
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 
