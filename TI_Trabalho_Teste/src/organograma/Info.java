@@ -8,8 +8,8 @@ public class Info {
 	private String emailRepresentante;
 	private int idno_fk;
 
-	public Info(int idInfo, int ramal, int sala, String representante,
-			String emailRepresentante, int idno_fk) {
+	public Info(int idInfo, String representante, int ramal, String emailRepresentante, int sala, 
+			 int idno_fk) {
 		super();
 		this.idInfo = idInfo;
 		this.ramal = ramal;
@@ -19,8 +19,8 @@ public class Info {
 		this.idno_fk = idno_fk;
 	}
 
-	public Info(int ramal, int sala, String representante,
-			String emailRepresentante, int idno_fk) {
+	public Info(String representante, int ramal, String emailRepresentante, int sala, 
+			 int idno_fk) {
 		super();
 		this.ramal = ramal;
 		this.sala = sala;
@@ -29,8 +29,7 @@ public class Info {
 		this.idno_fk = idno_fk;
 	}
 
-	public Info(int ramal, int sala, String representante,
-			String emailRepresentante) {
+	public Info(String representante, int ramal, String emailRepresentante, int sala) {
 		super();
 		this.ramal = ramal;
 		this.sala = sala;
