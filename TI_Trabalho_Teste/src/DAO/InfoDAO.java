@@ -24,7 +24,7 @@ public class InfoDAO {
 
 			PreparedStatement preparedStatement = null;
 			preparedStatement = (PreparedStatement) connection
-					.prepareStatement("INSERT INTO info (representante, ramal, email_representante, sala, idno_fk) VALUES (?, ?, ?, ?) ");
+					.prepareStatement("INSERT INTO info (representante, ramal, email_representante, sala, idno_fk) VALUES (?, ?, ?, ?, ?) ");
 
 			preparedStatement.setString(1, info.getRepresentante());
 			preparedStatement.setInt(2, info.getRamal());
@@ -37,7 +37,8 @@ public class InfoDAO {
 			connection.close();
 
 		} catch (SQLException e) {
-			System.out.println("ERRO: Gravação mal-sucedida.");
+			System.out.println("ERRO: INFO Gravação mal-sucedida.");
+			e.printStackTrace();
 		}
 	}
 

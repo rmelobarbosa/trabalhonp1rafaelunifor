@@ -17,8 +17,8 @@ public class Conexao {
 	private static String driver = "com.mysql.jdbc.Driver";
 	private static String conexao = "jdbc:mysql://127.0.0.1:3306/organograma";
 	private static String usuario = "root";
-//	private static String senha = "valmar";
-	private static String senha = "natalia";
+	private static String senha = "valmar";
+	//private static String senha = "natalia";
 
 	/**
 	 * Método o qual estabecerá uma conexão com o banco de Dados MySQL.

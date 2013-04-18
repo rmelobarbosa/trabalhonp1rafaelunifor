@@ -76,7 +76,7 @@ public class AdminServlet extends HttpServlet {
 
 		out.println("<td><select name='no-pai' >");
 		for (No no : noList) {
-			out.println("<option value='"+no.getNoIdPai()+"'>" + no.getNome() + "</option>");
+			out.println("<option value='"+(no.getNoIdPai() + 1)+"'>" + no.getNome() + "</option>");
 		}
 		out.println("</select></td>");
 
