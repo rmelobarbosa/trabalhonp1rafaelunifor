@@ -12,7 +12,7 @@ public class NoInfo {
 	}
 
 	public No getIdNo() {
-		return idNo;
+		return  idNo;
 	}
 
 	public void setIdNo(No idNo) {
