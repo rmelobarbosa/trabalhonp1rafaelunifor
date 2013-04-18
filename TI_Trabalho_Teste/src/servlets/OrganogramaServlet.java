@@ -48,9 +48,7 @@ public class OrganogramaServlet extends HttpServlet {
 		out.println(" </ul>");
 
 		out.println("</div>");
-		out.println("<div id='dialog'  title='Detalhes' >");
-		out.println("<p>Adding the modal overlay screen makes the dialog look more prominent because it dims out the page content.</p>");
-		out.println("</div>");
+			
 		out.println("</div>");
 
 		rd = request.getRequestDispatcher("organograma-footer.html");
@@ -60,7 +58,23 @@ public class OrganogramaServlet extends HttpServlet {
 
 	private void montarArvore(No no, PrintWriter out) {
 
-		out.println(" <li><a href='#'>" + no.getNome() + "</a>");
+//		out.println(" <li><a href='#'  id ='opener' >" + no.getNome() + "</a>");
+		
+//		out.println(" <li><a href='abrirJanela()?id="
+//				+ no.getIdNo()
+//				+ "&nomeNo="
+//				+ no.getNome()
+//				+ "'>"
+//				+ no.getNome()
+//				+ "</a>");
+		
+		out.println(" <li><a href='Organograma2Servlet?idNo="
+				+ no.getIdNo()
+				+ "&nomeNo="
+				+ no.getNome()
+				+ " '>"
+				+ no.getNome()
+				+ "</a>");
 
 		if (no.getFilhos().size() > 0) {
 			out.println(" <ul>");
