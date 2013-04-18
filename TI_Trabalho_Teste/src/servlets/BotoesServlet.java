@@ -45,10 +45,9 @@ public class BotoesServlet extends HttpServlet {
 		No noServlet = new No(request.getParameter("nomeNo"), "",
 				Integer.parseInt(request.getParameter("no-pai")));
 
-		Info infoServlet = new Info(Integer.parseInt(request
-				.getParameter("ramal")), Integer.parseInt(request
-				.getParameter("sala")), request.getParameter("representante"),
-				request.getParameter("email"));
+		Info infoServlet = new Info(request.getParameter("representante"),Integer.parseInt(request
+				.getParameter("ramal")), request.getParameter("email"), Integer.parseInt(request
+				.getParameter("sala")), Integer.parseInt(request.getParameter("id")));
 
 		if (criarPressed) {
 			noDao.saveData(noServlet);

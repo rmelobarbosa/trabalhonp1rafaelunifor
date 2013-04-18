@@ -118,17 +118,15 @@ public class InfoDAO {
 
 			PreparedStatement preparedStatement = null;
 			preparedStatement = (PreparedStatement) connection
-					.prepareStatement("SELECT ramal, sala, representante, email_representante, idno_fk FROM info WHERE id = ?");
+					.prepareStatement("SELECT representante, ramal, email_representante, sala, idno_fk FROM info WHERE id = ?");
 
 			preparedStatement.setInt(1, idInfo);
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
 
-			info = new Info(resultSet.getInt("ramal"),
-					resultSet.getInt("sala"),
-					resultSet.getString("representante"),
-					resultSet.getString("email_representante"),
+			info = new Info(resultSet.getString("representante"), resultSet.getInt("ramal"),
+					resultSet.getString("email_representante"),	resultSet.getInt("sala"),				
 					resultSet.getInt("idno_fk"));
 
 			resultSet.close();
@@ -163,10 +161,8 @@ public class InfoDAO {
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-				info = new Info(resultSet.getInt("ramal"),
-						resultSet.getInt("sala"),
-						resultSet.getString("representante"),
-						resultSet.getString("email_representante"));
+				info = new Info(resultSet.getString("representante"), resultSet.getInt("ramal"),
+						resultSet.getString("email_representante"),	resultSet.getInt("sala"));
 
 				infos.add(info);
 			}
@@ -196,10 +192,8 @@ public class InfoDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			while (resultSet.next()) {
-				info = new Info(resultSet.getInt("ramal"),
-						resultSet.getInt("sala"),
-						resultSet.getString("representante"),
-						resultSet.getString("email_representante"),
+				info = new Info(resultSet.getString("representante"), resultSet.getInt("ramal"),
+						resultSet.getString("email_representante"),	resultSet.getInt("sala"),				
 						resultSet.getInt("idno_fk"));
 				infos.add(info);
 			}
