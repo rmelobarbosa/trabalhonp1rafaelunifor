@@ -13,7 +13,10 @@
   <link rel="stylesheet" href="/resources/demos/style.css" />
 <script>
 $(function() {
-    $( "#dialog" ).dialog({autoOpen: false});
+    $( "#dialog" ).dialog(
+    		{autoOpen: true,
+    			modal:false}
+    		);
     
     
     $( "#opener" ).click(function() {
@@ -21,6 +24,7 @@ $(function() {
       });
     
   });
+
 </script>
 
 </head>
